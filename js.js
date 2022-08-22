@@ -1,63 +1,127 @@
-/*const range = document.querySelector('#opacidad');
+const menu=document.querySelector(".menu");
+const menunav=document.querySelector(".menunav");
+const luna=document.querySelector(".luna");
+const carrito=document.querySelector(".carrito");
+const modo=document.querySelector(".modo");
+const comprar=document.querySelector(".comprar");
+const add1=document.querySelector(".add1");
+const add2=document.querySelector(".add2");
+const add3=document.querySelector(".add3");
+const add4=document.querySelector(".add4");
+const productos=document.querySelector(".productos");
+const cancel=document.querySelector(".cancel");
+const button=document.querySelectorAll("button");
+const cajas=document.querySelector("addcaja");
+let container=document.querySelector(".addmore")
 
-const range2=document.querySelector("#contraste")
-const valor =document.querySelector(".valor1");
-const range3=document.querySelector("#contraste")
-const color=document.querySelector('input[type="color"]');
-const item=document.querySelector(".item");
 
-color.addEventListener('input',(e)=>{
-   item.style.background=hexToRgb(e.target.value);
-localStorage.setItem("rgba",hexToRgb(e.target.value));
+
+
+
+
+const crearCaja1 =()=>{ 
+    return `<div class="addcaja"> 
+<img src="imagenes/descarga.jpg" alt="">
+<div class="more">
+    <p class="value2">0 </p> 
+    <img src="iconos/menos-que.png" alt="">
+    <img src="iconos/mas-grande-que.png" alt="">
+</div>
+<div class="cajabutton ">
+<button class="delete">eliminar</button>
+<button>comprar</button>
+</div> 
+</div>`}
+
+
+
+const crearCaja2 =()=>{ 
+    return `<div class="addcaja"> 
+<img src="imagenes/hola.jpg" alt="">
+<div class="more">
+    <p class="value2">0 </p> 
+    <img src="iconos/menos-que.png" alt="">
+    <img src="iconos/mas-grande-que.png" alt="">
+</div>
+<div class="cajabutton ">
+<button class="delete">eliminar</button>
+<button>comprar</button>
+</div> 
+</div>`}
+
+
+
+const crearCaja3 =()=>{ 
+    return `<div class="addcaja"> 
+<img src="imagenes/sombrerode paja.jpg" alt="">
+<div class="more">
+    <p class="value2">0 </p> 
+    <img src="iconos/menos-que.png" alt="">
+    <img src="iconos/mas-grande-que.png" alt="">
+</div>
+<div class="cajabutton ">
+<button class="delete">eliminar</button>
+<button>comprar</button>
+</div> 
+</div>`}
+
+
+const crearCaja4 =()=>{ 
+    return `<div class="addcaja"> 
+<img src="imagenes/descarga.jpg" alt="">
+<div class="more">
+    <p class="value2">0 </p> 
+    <img src="iconos/menos-que.png" alt="">
+    <img src="iconos/mas-grande-que.png" alt="">
+</div>
+<div class="cajabutton ">
+<button class="delete">eliminar</button>
+<button>comprar</button>
+</div> 
+</div>`}
+
+
+
+add2.addEventListener('click',()=>{
+    container.innerHTML= crearCaja2();
+    
+    })
+
+add3.addEventListener('click',()=>{
+    container.innerHTML= crearCaja3();
+    })
+
+
+add4.addEventListener('click',()=>{
+container.innerHTML= crearCaja4();
+
 })
 
-function hexToRgb(hex) {
-   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-   if(result){
-       const r= parseInt(result[1], 16);
-       const g= parseInt(result[2], 16);
-       const b= parseInt(result[3], 16);
-       return `rgba(${r},${g},${b},.99)`
-   } 
-   return null;
- }
- range.addEventListener('input', (e)=>{
-   let rgba = localStorage.getItem("rgba");
-   let splite=rgba.split(',');
-   splite.pop();
-   splite.push(` ${e.target.value/100}`)
-   rgba=splite.join(',')
-   item.style["backgroud-color"]=rgba 
-   localStorage.setItem("rgba",rgba);
-   console.log(item)
-}
-);
-range2.addEventListener("input",(e)=>{
-   item.style["background-filter"]=`range2(${e.target.value}px)`;
-   console.log(range2)
+const agregarcajas=[    
+    `${crearCaja1}`,
+    `${crearCaja2}`,
+    `${crearCaja3}`,
+    `${crearCaja4}`
+];
+
+container =[]
+add1.addEventListener('click',()=>{
+return container.push(agregarcajas[0]);
+
+    })
+
+
+
+;
+  
+
+
+cancel.addEventListener("click",()=>{
+    productos.style.display="none";
 })
-range3.addEventListener("input",(e)=>{
-   item.style["background-filter"]=`range3(${e.target.value}%)`;
-})
-*/
-
-
-const range1=document.querySelector("#difuminar")
-const saturacion=document.querySelector("#saturar")
-const  caja=document.querySelector(".item")
-const color=document.querySelector(".color")
-
-color.addEventListener('input',(e) => {
-   caja.style.background=e.target.value;
+carrito.addEventListener("click",()=>{
+productos.style.display="block";
 })
 
-function createFilter(){
-   rgb = `blur(${range1.value}px) saturate(${saturacion.value}%)`
-}
 
 
-range1.addEventListener("input",createFilter =>{
- caja.style.filter=`blur(createFilter.target.value;)`
-caja.innerHTML=createFilter.target.value;
-console.log(range1)
-})
